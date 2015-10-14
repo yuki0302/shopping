@@ -1,10 +1,5 @@
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL']||"sqlite3:db/development.db")
 
-class User < ActiveRecord::Base
-  has_many :items
-  has_one :cart
-end
-
 class Cart < ActiveRecord::Base
   belongs_to :user
   has_many :items
