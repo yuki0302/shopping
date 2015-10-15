@@ -13,3 +13,15 @@ end
 class Category < ActiveRecord::Base
   has_many :items
 end
+
+class User < ActiveRecord::Base
+  has_one :cart
+  has_many :items
+end
+
+unless ENV['RACK_ENV'] == 'production'
+  ActiveRecord::Base.establish_connection("sqlite3:db/development.db")
+end
+class User < ActiveRecord::Base
+  has_secure_password
+end

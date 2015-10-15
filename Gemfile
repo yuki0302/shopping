@@ -9,6 +9,7 @@ gem 'nokogiri'
 gem 'seed-fu', github: 'mbleigh/seed-fu'
 
 gem 'dotenv'
+gem 'bcrypt'
 
 group :development do
   gem 'sqlite3'
