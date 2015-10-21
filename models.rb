@@ -6,7 +6,7 @@ end
 
 class Item < ActiveRecord::Base
   belongs_to :category
-  has_many :carts, through: :cart_items
+  has_many :carts, through: :cart_items 
 end
 
 class CartItem < ActiveRecord::Base

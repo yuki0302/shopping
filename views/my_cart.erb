@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>カートの中身</title>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.css">
   </head>
   <body>
     <div class="container">
@@ -30,6 +31,6 @@
       </table>
       <p>全<%= Cart.count %>アイテム,合計<%= Cart.sum(:price) %>円</p>
     </div>
-
+    <p><a href="/">HOME</a></p>
   </body>
 </html>
