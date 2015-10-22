@@ -20,6 +20,9 @@
             <% else %>
               <li><a href="/signout">ログアウト</a></li>
               <li><a href="/my_cart"><%= User.find(session[:user]).name %>さんのカート</a></li>
+              <li><a href="/create_cart">カートを作成する</a>
+              </li>
+              <li><a href="/admin">管理者画面</a></li>
             <% end %>
             <form class="navbar-form navbar-left" action="/add_item" method="post">
               <div class="form-group">
@@ -49,8 +52,12 @@
                 <p><a href="/category/<%= item.category_id %>"><%= item.category.name %></a></p>
               <% end %>
               <form method="post" action="/add_to_cart">
-                <input type="hidden" name="name" value="<%= item.name %>">
-                <input type="hidden" name="price" value="<%= item.price %>">
+                <input type="hidden" name="item_id" value="<%= item.id %>">
+                <select name="cart_id" id="cart_id"  class="form-control">
+                  <% Cart.all.each do |cart| %>
+                    <option value="<%= cart.id %>">カート<%= cart.id %></option>
+                  <% end %>
+                </select>
                 <p><input type="submit" value="カートに入れる"></p>
               </form>
             </div>

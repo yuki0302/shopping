@@ -50,7 +50,7 @@ post '/add_item' do
 end
 
 post '/add_to_cart' do
-  @cart = Cart.create(name: params[:name], price: params[:price])
+  CartItem.create(cart_id: params[:cart_id], item_id: params[:item_id])
   redirect '/my_cart'
 end
 
@@ -60,13 +60,23 @@ post '/delete/:id' do
 end
 
 get '/category/:id' do
-  @categories    = Category.all
   @category      = Category.find(params[:id])
-  @category_name = @category.name
-  @items         = @category.items
-  erb:category
+  erb :category
 end
 
 get '/my_cart' do
   erb :my_cart
+end
+
+get '/create_cart' do
+  erb :create_cart
+end
+
+post '/create_cart' do
+  @create_cart = Cart.create
+  redirect '/create_cart'
+end
+
+get '/admin' do
+  erb :admin
 end

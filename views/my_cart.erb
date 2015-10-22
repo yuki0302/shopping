@@ -7,29 +7,6 @@
   </head>
   <body>
     <div class="container">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>商品名</th>
-            <th>価格</th>
-            <th>カートから削除</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% Cart.all.each do |cart| %>
-            <tr>
-              <td><%= cart.name %></td>
-              <td><%= cart.price %>円</td>
-              <td>
-                <form action="/delete/<%= cart.id %>" method="post">
-                  <input type="submit" value="削除">
-                </form>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <p>全<%= Cart.count %>アイテム,合計<%= Cart.sum(:price) %>円</p>
     </div>
     <p><a href="/">HOME</a></p>
   </body>
